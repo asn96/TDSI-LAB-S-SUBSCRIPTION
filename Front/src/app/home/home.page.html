@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      TDSI LAB'S
+    </ion-title>
+  </ion-toolbar>
+  <ion-segment
+    color="primary"
+    scrollable="true"
+    mode=""
+    [(ngModel)]="this.segmentModel"
+    (ionChange)="segmentChanged($event)"
+
+  >
+    <ion-segment-button value=0 (click)="selectTab(0)"
+                        id="segment-0" layout="icon-start">
+      <ion-icon name="file-tray-full" color="primary" size="small"></ion-icon>
+      <ion-label>
+        <h6>Recettes</h6>
+      </ion-label>
+      <ion-badge color="light" > 1</ion-badge>
+    </ion-segment-button>
+    <ion-segment-button value=1 (click)="selectTab(1)"
+                        id="segment-1" layout="icon-start">
+      <ion-icon name="file-tray-full" color="primary" size="small"></ion-icon>
+      <ion-label>
+        <h6>Depenses</h6>
+      </ion-label>
+      <ion-badge color="light" > 2</ion-badge>
+    </ion-segment-button>
+    <ion-segment-button value=2 (click)="selectTab(2)"
+                        id="segment-2" layout="icon-start">
+      <ion-icon name="file-tray-full" color="primary" size="small"></ion-icon>
+      <ion-label>
+        <h6>Factures</h6>
+      </ion-label>
+      <ion-badge color="light" > 3</ion-badge>
+    </ion-segment-button>
+
+  </ion-segment>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="loadData($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-slides [options]="" pager="true" #slides class="" (ionSlideWillChange)="slideChanged($event)">
+    <ion-slide >
+      <app-list-etudiant></app-list-etudiant>
+    </ion-slide>
+    <ion-slide >
+      <app-list-etudiant></app-list-etudiant>
+    </ion-slide>
+    <ion-slide >
+      <app-list-etudiant></app-list-etudiant>
+    </ion-slide>
+  </ion-slides>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addEtudiant()">
+    <ion-fab-button>
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
