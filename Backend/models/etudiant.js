@@ -31,7 +31,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: DataTypes.STRING,
     telephone: DataTypes.STRING,
-    adresse: DataTypes.STRING
+    adresse: DataTypes.STRING,
+    sexe: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    }
   }, {
     sequelize,
     modelName: 'Etudiant',

@@ -1,0 +1,17 @@
+
+ion-list{
+  --ion-background-color: transparent;
+}
+ion-item{
+  --ion-background-color: white;
+  margin: 10px;
+  border-radius: 5px;
+}
+ion-item ion-label {
+  color: blue ;
+}
+ion-item {
+  border: 1px solid blue;
+  border-radius: 5px;
+
+}

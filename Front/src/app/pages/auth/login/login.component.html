@@ -1,3 +1,50 @@
-<p>
-  login works!
-</p>
+<ion-content color="" class="ion-text-center">
+  <form [formGroup]="signInForm" *ngIf="!this.page" style="margin-top: 10%" class="centre">
+    <ion-text color="primary">Connexion</ion-text>
+
+    <ion-list>
+
+      <div class="ion-text-right ion-margin-end">
+        <div *ngFor="let validation of validations.telephone_valid">
+          <div
+            *ngIf="signInForm.get('telephone').hasError(validation.type) && (signInForm.get('telephone').dirty || signInForm.get('telephone').touched)">
+            <ion-icon name="information-circle-outline" color="danger"></ion-icon>
+            <span style="color: red; font-size: 10px"> {{ validation.message }} </span>
+          </div>
+        </div>
+      </div>
+      <ion-card>
+        <ion-item lines="none">
+          <ion-icon name="call" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input [maxlength]="15" type = "number" name="telephone" formControlName="telephone" required>
+          </ion-input>
+        </ion-item>
+      </ion-card>
+      <div class="ion-text-right ion-margin-end">
+        <div *ngFor="let validation of validations.password_valid">
+          <div
+            *ngIf="signInForm.get('password').hasError(validation.type) && (signInForm.get('password').dirty || signInForm.get('password').touched)">
+            <ion-icon name="information-circle-outline" color="danger"></ion-icon>
+            <span style="color: red; font-size: 10px"> {{ validation.message }} </span>
+          </div>
+        </div>
+      </div>
+      <ion-card>
+        <ion-item lines="none">
+          <ion-icon name="lock-closed" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+          <ion-label position="floating">Code Secret</ion-label>
+          <ion-input minlength="4" maxlength="10" type = "password" name="password" formControlName="password" required>
+          </ion-input>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+    <div style="text-align: center;">
+      <ion-button type="submit" [disabled]="!signInForm.valid" style="width: 70%" color = "primary" (click)="Onvalider()">
+        Valider
+      </ion-button>
+    </div>
+
+  </form>
+  <ion-spinner *ngIf="this.page" name="crescent" color = "primary"></ion-spinner>
+</ion-content>

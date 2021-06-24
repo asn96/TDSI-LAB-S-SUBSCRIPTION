@@ -4,7 +4,7 @@ module.exports = function (app) {
 
     app.post(
         '/createEtudiant',
-        checkAuth,
+        // checkAuth,
         etudiantController.createEtudiant
     )
 

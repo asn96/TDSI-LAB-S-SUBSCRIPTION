@@ -1,12 +1,125 @@
 <ion-header>
-  <ion-toolbar color='primary'>
-    <ion-buttons  slot="start">
-      <ion-button (click)='closeModal()'>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button color="" (click)='closeModal()'>
         <ion-icon name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>
-      Nouveau Etudiant
-    </ion-title>
+    <ion-title>Nouveau etudiant</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <form class="ion-text-center" [formGroup]="etudiantForm">
+    <ion-list>
+      <ion-list-header color="">
+        <ion-text color="primary">Renseigner les champs suivant</ion-text>
+      </ion-list-header>
+      <div class="ion-text-right ion-margin-end">
+        <div *ngFor="let validation of validations.nomComplet_valid">
+          <div
+            *ngIf="etudiantForm.get('nomComplet').hasError(validation.type) && (etudiantForm.get('nomComplet').dirty || etudiantForm.get('nomComplet').touched)">
+            <ion-icon name="information-circle-outline" color="danger"></ion-icon>
+            <span style="color: red; font-size: 10px"> {{ validation.message }} </span>
+          </div>
+        </div>
+      </div>
+      <ion-item lines="none">
+        <ion-icon name="journal" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-label position="floating">Nom Complet</ion-label>
+        <ion-input [maxlength]="50" type = "text" name="nomComplet" formControlName="nomComplet" placeholder="ex Amad S Ndiaye" required>
+        </ion-input>
+      </ion-item>
+
+      <div class="ion-text-right ion-margin-end">
+        <div *ngFor="let validation of validations.telephone">
+          <div
+            *ngIf="etudiantForm.get('telephone').hasError(validation.type) && (etudiantForm.get('telephone').dirty || etudiantForm.get('telephone').touched)">
+            <ion-icon name="information-circle-outline" color="danger"></ion-icon>
+            <span style="color: red; font-size: 10px"> {{ validation.message }} </span>
+          </div>
+        </div>
+      </div>
+      <ion-item lines="none">
+        <ion-icon name="cash" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-label position="floating">Téléphone</ion-label>
+        <ion-input [maxlength]="10" type="number" name="telephone" formControlName="telephone" placeholder="ex: 70 123 12 12" required>
+        </ion-input>
+      </ion-item>
+
+      <div class="ion-text-right ion-margin-end">
+        <div *ngFor="let validation of validations.adresse">
+          <div
+            *ngIf="etudiantForm.get('adresse').hasError(validation.type) && (etudiantForm.get('adresse').dirty || etudiantForm.get('adresse').touched)">
+            <ion-icon name="information-circle-outline" color="danger"></ion-icon>
+            <span style="color: red; font-size: 10px"> {{ validation.message }} </span>
+          </div>
+        </div>
+      </div>
+      <ion-item lines="none">
+        <ion-icon name="journal" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-label position="floating">Adresse</ion-label>
+        <ion-input [maxlength]="50" type = "text" name="adresse" formControlName="adresse" placeholder="ex Dakar" required>
+        </ion-input>
+      </ion-item>
+
+
+      <div class="ion-text-right ion-margin-end">
+        <div *ngFor="let validation of validations.email_valid">
+          <div
+            *ngIf="etudiantForm.get('email').hasError(validation.type) && (etudiantForm.get('email').dirty || etudiantForm.get('email').touched)">
+            <ion-icon name="information-circle" color="danger"></ion-icon>
+            <span style="color: red; font-size: 10px"> {{ validation.message }} </span>
+          </div>
+        </div>
+      </div>
+      <ion-item lines="none">
+        <ion-icon name="water" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-label position="floating">Adresse E-mail</ion-label>
+        <ion-input [maxlength]="30" type = "text" name="email" formControlName="email" placeholder="ex: amad@neksi.sn" required>
+        </ion-input>
+      </ion-item>
+
+      <div class="ion-text-right ion-margin-end">
+        <div *ngFor="let validation of validations.sexe">
+          <div
+            *ngIf="etudiantForm.get('sexe').hasError(validation.type) && (etudiantForm.get('sexe').dirty || etudiantForm.get('sexe').touched)">
+            <ion-icon name="information-circle" color="danger"></ion-icon>
+            <span style="color: red; font-size: 10px"> {{ validation.message }} </span>
+          </div>
+        </div>
+      </div>
+      <ion-item lines="none">
+        <ion-icon name="water" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-label position="floating">Sexe</ion-label>
+        <ion-select placeholder="Sexe" formControlName="sexe" interface="popover">
+          <ion-select-option value="1">Masculin</ion-select-option>
+          <ion-select-option value="0">Féminin</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="ion-text-right ion-margin-end">
+        <div *ngFor="let validation of validations.niveauid">
+          <div
+            *ngIf="etudiantForm.get('niveauid').hasError(validation.type) && (etudiantForm.get('niveauid').dirty || etudiantForm.get('niveauid').touched)">
+            <ion-icon name="information-circle" color="danger"></ion-icon>
+            <span style="color: red; font-size: 10px"> {{ validation.message }} </span>
+          </div>
+        </div>
+      </div>
+      <ion-item lines="none">
+        <ion-icon name="water" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-label position="floating">Niveau</ion-label>
+        <ion-select placeholder="Niveau" formControlName="niveauid" interface="popover">
+          <ion-select-option *ngFor="let niveau of this.niveauService.list_niveaux" value="{{niveau.id}}">{{niveau.nom}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+    <div style="text-align: center;">
+      <ion-button type="submit" [disabled]="!etudiantForm.valid" style="width: 70%" color = "primary" (click)="createEtudiant()">
+        valider
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>

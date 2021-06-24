@@ -6,7 +6,8 @@ exports.createEtudiant = (req, res) => {
             nomComplet: req.body.nomComplet,
             email: req.body.email,
             telephone: req.body.telephone,
-            adresse: req.body.adresse
+            adresse: req.body.adresse,
+            userid: req.body.userid
         }
     ).then(result => res.json({etudiant: result}))
 }

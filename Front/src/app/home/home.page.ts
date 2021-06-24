@@ -1,18 +1,24 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonSlides, ModalController} from "@ionic/angular";
 import {NouveauEtudiantComponent} from "../pages/etudiant/nouveau-etudiant/nouveau-etudiant.component";
+import {NiveauService} from "../services/niveau/niveau.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
   segmentModel = 0;
   @ViewChild('slides', { static: true }) slides: IonSlides;
 
-  constructor(public modalCtrl: ModalController) {}
+  constructor(public modalCtrl: ModalController, public niveauService: NiveauService) {}
+
+
+  ngOnInit(): void {
+    this.initData();
+  }
 
   async segmentChanged($event: any) {
     await this.slides.getActiveIndex().then(index => {
@@ -60,7 +66,7 @@ export class HomePage {
   }
 
   private initData() {
-
+    this.niveauService.getAllNiveaux();
   }
 
   async addEtudiant() {
@@ -71,4 +77,5 @@ export class HomePage {
     return await modal.present();
 
   }
+
 }
