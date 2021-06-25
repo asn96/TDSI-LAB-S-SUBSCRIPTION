@@ -15,7 +15,7 @@ export class NiveauService {
     this.list_niveaux = [];
     this.genericService.getElements('getAllNiveau').subscribe(response => {
       this.list_niveaux = response['niveaux'];
-      console.log('list_oders : ', this.list_niveaux);
+      // console.log('niveaux : ', this.list_niveaux);
     }, error => {
       this.shareService.presentToast('erreur lors du chargement', 'danger').then(r => {});
     });

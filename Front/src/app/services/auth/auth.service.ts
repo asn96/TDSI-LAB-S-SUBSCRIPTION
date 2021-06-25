@@ -14,17 +14,17 @@ export class AuthService {
   signInUser(user: any) {
     this.genericService.createElementWOT('signin', user).subscribe(response => {
       // const data = this.jwtHelper.decodeToken(response['token']);
-      console.log(response);
+      // console.log(response);
       localStorage.setItem('token', response['token']);
       setTimeout(() => {
         this.shareService.router.navigate(['home/']).then(r => {});
       }, 3000);
 
     }, error => {
-      console.log('error: ', error);
+      // console.log('error: ', error);
       const mess = error['error']['message'];
       this.shareService.presentToast(mess, 'danger').then(r => {
-        console.log('OK');
+        // console.log('OK');
       });
     });
   }

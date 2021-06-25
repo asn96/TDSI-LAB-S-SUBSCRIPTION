@@ -11,7 +11,7 @@ export class EtudiantService {
 
   createEtudiant(etudiant) {
     this.genericService.createElement('createEtudiant', etudiant).subscribe(response => {
-        console.log(' Etudiant created : ', response['etudiant']);
+        // console.log(' Etudiant created : ', response['etudiant']);
     },
       error => {
         this.shareService.presentToast('erreur lors du chargement', 'danger').then(r => {});
