@@ -13,4 +13,16 @@ export class ListEtudiantComponent implements OnInit {
 
   ngOnInit() {}
 
+  voirDetail(etudiant: any) {
+
+  }
+
+  getSexe(etudiant: any) {
+    let sexe = ['secondary', 'F']
+    if (etudiant.sexe) {
+      sexe = ['primary', 'M']
+    }
+
+    return sexe;
+  }
 }

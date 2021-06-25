@@ -79,9 +79,9 @@ export class NouveauEtudiantComponent implements OnInit {
 
   createEtudiant() {
     console.log(this.etudiantForm.value);
-    // this.etudiantService.createEtudiant(this.etudiantForm.value);
-
+    this.etudiantService.createEtudiant(this.etudiantForm.value);
     this.presentLoading().then(p => {
+      this.niveauService.getAllNiveaux();
       this.closeModal();
     });
 

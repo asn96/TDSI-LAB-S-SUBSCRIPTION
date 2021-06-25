@@ -5,7 +5,7 @@
         <ion-icon name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Nouveau etudiant</ion-title>
+    <ion-title>Inscription</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <ion-item lines="none">
-        <ion-icon name="journal" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-icon name="person" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
         <ion-label position="floating">Nom Complet</ion-label>
         <ion-input [maxlength]="50" type = "text" name="nomComplet" formControlName="nomComplet" placeholder="ex Amad S Ndiaye" required>
         </ion-input>
@@ -40,7 +40,7 @@
         </div>
       </div>
       <ion-item lines="none">
-        <ion-icon name="cash" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-icon name="call" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
         <ion-label position="floating">Téléphone</ion-label>
         <ion-input [maxlength]="10" type="number" name="telephone" formControlName="telephone" placeholder="ex: 70 123 12 12" required>
         </ion-input>
@@ -56,7 +56,7 @@
         </div>
       </div>
       <ion-item lines="none">
-        <ion-icon name="journal" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-icon name="home" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
         <ion-label position="floating">Adresse</ion-label>
         <ion-input [maxlength]="50" type = "text" name="adresse" formControlName="adresse" placeholder="ex Dakar" required>
         </ion-input>
@@ -73,7 +73,7 @@
         </div>
       </div>
       <ion-item lines="none">
-        <ion-icon name="water" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-icon name="mail" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
         <ion-label position="floating">Adresse E-mail</ion-label>
         <ion-input [maxlength]="30" type = "text" name="email" formControlName="email" placeholder="ex: amad@neksi.sn" required>
         </ion-input>
@@ -89,7 +89,7 @@
         </div>
       </div>
       <ion-item lines="none">
-        <ion-icon name="water" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-icon name="transgender" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
         <ion-label position="floating">Sexe</ion-label>
         <ion-select placeholder="Sexe" formControlName="sexe" interface="popover">
           <ion-select-option value="1">Masculin</ion-select-option>
@@ -107,7 +107,7 @@
         </div>
       </div>
       <ion-item lines="none">
-        <ion-icon name="water" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
+        <ion-icon name="school" color="primary" size="large" slot="start" class="z-depth-4"></ion-icon>
         <ion-label position="floating">Niveau</ion-label>
         <ion-select placeholder="Niveau" formControlName="niveauid" interface="popover">
           <ion-select-option *ngFor="let niveau of this.niveauService.list_niveaux" value="{{niveau.id}}">{{niveau.nom}}</ion-select-option>

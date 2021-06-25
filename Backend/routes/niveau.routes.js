@@ -16,7 +16,7 @@ module.exports = function (app) {
 
     app.get(
         '/getAllNiveau',
-        // checkAuth,
+        checkAuth,
         niveauController.findAllNiveaux
     )
 }

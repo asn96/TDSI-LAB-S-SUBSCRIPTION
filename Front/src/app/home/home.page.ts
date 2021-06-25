@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonSlides, ModalController} from "@ionic/angular";
 import {NouveauEtudiantComponent} from "../pages/etudiant/nouveau-etudiant/nouveau-etudiant.component";
 import {NiveauService} from "../services/niveau/niveau.service";
+import {ShareService} from "../services/share.service";
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomePage implements OnInit{
   segmentModel = 0;
   @ViewChild('slides', { static: true }) slides: IonSlides;
 
-  constructor(public modalCtrl: ModalController, public niveauService: NiveauService) {}
+  constructor(public modalCtrl: ModalController, public niveauService: NiveauService,
+              public shareService: ShareService) {}
 
 
   ngOnInit(): void {
@@ -78,4 +80,12 @@ export class HomePage implements OnInit{
 
   }
 
+  deconnexion() {
+    // console.log('deconnexion');
+    localStorage.clear();
+    this.shareService.router.navigate(['auth/']).then(r => {
+      console.log('deconnexion: ');
+    });
+
+  }
 }

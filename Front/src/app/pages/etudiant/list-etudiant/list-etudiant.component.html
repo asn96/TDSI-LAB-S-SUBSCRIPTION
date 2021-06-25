@@ -1,45 +1,27 @@
 <ion-content>
 
+  <ion-virtual-scroll [items]="this.list_etudiants" approxItemHeight="300px">
+    <ion-item *virtualItem="let etudiant"  (click)="voirDetail(etudiant)" class="borderClass ion-margin">
 
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
+      <ion-badge color='{{getSexe(etudiant)[0]}}'
+                 style='position:absolute;bottom:0px; right: 0px; font-size: 10px'>{{etudiant.createdAt | date: 'HH:mm:ss'}}</ion-badge>
+      <ion-avatar slot="start" >
+        <ion-badge color='{{getSexe(etudiant)[0]}}'
+                   style='position:absolute;top:0px; left: 0px; font-size: 10px'>{{getSexe(etudiant)[1]}}</ion-badge>
+        <ion-img src="assets/club.png"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h5>{{etudiant.nomComplet}}</h5>
+        <p>{{etudiant.email}}</p>
+      </ion-label>
+      <ion-note slot="end">
+        <ion-badge color="light" >{{etudiant.adresse}}</ion-badge>
+        <p>
+          <span slot="end">{{etudiant.telephone}}</span>
+        </p>
+      </ion-note>
+    </ion-item>
+  </ion-virtual-scroll>
+  <ion-row style="margin: 30px"></ion-row>
 
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-card-header>azerty</ion-card-header>
-  <ion-card-content>azertyui</ion-card-content>
-</ion-card>
 </ion-content>

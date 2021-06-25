@@ -7,7 +7,9 @@ exports.createEtudiant = (req, res) => {
             email: req.body.email,
             telephone: req.body.telephone,
             adresse: req.body.adresse,
-            userid: req.body.userid
+            userid: req.body.userid,
+            niveauid: req.body.niveauid,
+            sexe: req.body.sexe
         }
     ).then(result => res.json({etudiant: result}))
 }
@@ -18,7 +20,9 @@ exports.updateEtudiant = (req, res) => {
             nomComplet: req.body.nomComplet,
             email: req.body.email,
             telephone: req.body.telephone,
-            adresse: req.body.adresse
+            adresse: req.body.adresse,
+            niveauid: req.body.niveauid,
+            sexe: req.body.sexe
         },
         {
             where: {

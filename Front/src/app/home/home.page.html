@@ -3,7 +3,13 @@
     <ion-title>
       TDSI LAB'S
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deconnexion()">
+        <ion-icon slot="icon-only" name="log-out" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+
   <ion-segment
     color="primary"
     scrollable="true"
@@ -15,10 +21,11 @@
     <ion-segment-button *ngFor="let niveau of this.niveauService.list_niveaux; let i = index" value="{{i}}" (click)="selectTab(i)"
                         id="segment-{{i}}" layout="icon-start">
       <ion-icon name="file-tray-full" color="primary" size="small"></ion-icon>
+      <ion-badge color="light" > {{niveau.etudiants?.length}}</ion-badge>
       <ion-label>
         <h6>{{niveau.nom}}</h6>
       </ion-label>
-      <ion-badge color="light" > {{niveau.etudiants?.length}}</ion-badge>
+
     </ion-segment-button>
   </ion-segment>
 </ion-header>
@@ -34,7 +41,7 @@
   </ion-slides>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addEtudiant()">
     <ion-fab-button>
-      <ion-icon name="add" ></ion-icon>
+      <ion-icon name="person-add" ></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

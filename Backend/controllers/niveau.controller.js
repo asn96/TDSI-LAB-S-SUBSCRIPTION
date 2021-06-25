@@ -32,6 +32,10 @@ exports.findAllNiveaux = (req, res) => {
                     model: db.Etudiant,
                     as: 'etudiants'
                 }
+            ],
+            order : [
+                ['nom', 'ASC'],
+                [{model:  db.Etudiant, as: "etudiants"}, 'createdAt', 'DESC']
             ]
         }
     ).
