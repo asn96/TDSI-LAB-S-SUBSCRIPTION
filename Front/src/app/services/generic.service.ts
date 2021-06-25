@@ -7,7 +7,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class GenericService {
 
   // backendUrl = 'http://localhost:4000'; // dev
-   backendUrl = 'https://vmi502542.contaboserver.net'; // prod
+   backendUrl = 'https://vmi502542.contaboserver.net:5002'; // prod
 
   checkauth = {headers: new HttpHeaders({ 'authorization': 'Bearer' + ' ' + localStorage.getItem('token')})};
 
