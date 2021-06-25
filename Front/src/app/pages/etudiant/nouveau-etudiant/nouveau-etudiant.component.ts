@@ -19,7 +19,7 @@ export class NouveauEtudiantComponent implements OnInit {
       Validators.required
     ])),
     email: new FormControl('', Validators.compose([
-      Validators.maxLength(20),
+      Validators.maxLength(40),
       Validators.minLength(2),
       Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
       Validators.required
